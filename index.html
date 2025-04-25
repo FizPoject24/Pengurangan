@@ -115,14 +115,20 @@
         const questions = [];
 
         for (let i = 0; i < 1000; i++) {
-            let num1 = Math.floor(Math.random() * 10);
-            let num2 = Math.floor(Math.random() * 10);
-        
-        questions.push({
-            num1: num1,
-            num2: num2,
-            correctAnswer: num1 - num2
-        });
+    let num1 = Math.floor(Math.random() * 10);
+    let num2 = Math.floor(Math.random() * 10);
+
+    // pastikan num1 lebih besar dari num2 agar hasil tidak negatif
+    if (num1 < num2) {
+        [num1, num2] = [num2, num1]; // tukar posisi
+    }
+
+    questions.push({
+        num1: num1,
+        num2: num2,
+        correctAnswer: num1 - num2
+    });
+}
 
             
         }
